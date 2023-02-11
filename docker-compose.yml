@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  localstack:
+    image: localstack/localstack:0.10.6
+    ports:
+      - "4566:4566"
+      - "8082:8082"
+    environment:
+      SERVICES: s3:4566
+      HOSTNAME_EXTERNAL: localstack
+      DEBUG: 1
+      PORT_WEB_UI: 8082
+      AWS_DEFAULT_REGION: us-west-2
+      AWS_SECRET_ACCESS_KEY: kkkkkkkk
+      AWS_ACCESS_KEY_ID: aaaaaaaa
