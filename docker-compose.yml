@@ -1,0 +1,27 @@
+version: '2.1'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: javatechie
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: mysql -D javatechie  -ppassword -e "SELECT 1"
+      interval: 4s
+      timeout: 1s
+      retries: 5
+  localstack:
+    image: localstack/localstack:0.10.6
+    ports:
+      - "4566:4566"
+      - "8082:8082"
+    environment:
+      SERVICES: s3:4566
+      HOSTNAME_EXTERNAL: localstack
+      DEBUG: 1
+      PORT_WEB_UI: 8082
+      AWS_DEFAULT_REGION: us-west-2
+      AWS_SECRET_ACCESS_KEY: kkkkkkkk
+      AWS_ACCESS_KEY_ID: aaaaaaaa
