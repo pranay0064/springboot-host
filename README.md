@@ -1,2 +1,5 @@
-# file-storage-service
-Spring Boot File Upload and Download REST API |Store Images in Database
+Steps to run
+
+1. mvn clean install
+2. docker-compose up --build
+3. run application class
